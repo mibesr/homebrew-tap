@@ -4,13 +4,11 @@ cask "echomusic" do
   version "2.3.2-beta.3"
   sha256 :no_check
 
-  url "https://github.com/hoowhoami/EchoMusic/releases/download/v#{version}/EchoMusic-#{version}-macOS-#{arch}.dmg",
-      verified: "github.com/hoowhoami/EchoMusic/"
+  url "https://github.com/hoowhoami/EchoMusic/releases/download/v#{version}/EchoMusic-#{version}-macOS-#{arch}.dmg"
   name "EchoMusic"
   desc "A simple and powerful third-party music player"
   homepage "https://github.com/hoowhoami/EchoMusic"
 
-  # 跟踪最新 release（含 prerelease，跳过 draft）
   livecheck do
     url :url
     regex(/^v?(\d+(?:\.\d+)+(?:[._-](?:alpha|beta|rc)\.?\d+)?)$/i)
