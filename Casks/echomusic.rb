@@ -1,19 +1,29 @@
 cask "echomusic" do
+  arch arm: "arm64", intel: "x64"
+
   version "2.3.2-beta.3"
   sha256 :no_check
 
   url "https://github.com/hoowhoami/EchoMusic/releases/download/v#{version}/EchoMusic-#{version}-macOS-#{arch}.dmg",
-      verified: "https://github.com"
-
+      verified: "github.com/hoowhoami/EchoMusic/"
   name "EchoMusic"
-  desc "音乐播放器"
+  desc "A simple and powerful third-party music player"
   homepage "https://github.com/hoowhoami/EchoMusic"
 
-  on_intel do
-    arch = "x64"
-  end
-  on_arm do
-    arch = "arm64"
+  # 跟踪最新 release（含 prerelease，跳过 draft）
+  livecheck do
+    url :url
+    regex(/^v?(\d+(?:\.\d+)+(?:[._-](?:alpha|beta|rc)\.?\d+)?)$/i)
+    strategy :github_releases do |json, regex|
+      json.filter_map do |release|
+        next if release["draft"]
+
+        match = release["tag_name"]&.match(regex)
+        next if match.blank?
+
+        match[1]
+      end
+    end
   end
 
   app "EchoMusic.app"
