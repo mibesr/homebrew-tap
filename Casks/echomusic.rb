@@ -2,7 +2,7 @@ cask "echomusic" do
   version "2.3.2-beta.3"
   sha256 :no_check
 
-  url "https://github.com/hoowhoami/EchoMusic/releases/download/v2.3.2-beta.3/EchoMusic-#{version}-macOS-#{arch}.dmg",
+  url "https://github.com/hoowhoami/EchoMusic/releases/download/v#{version}/EchoMusic-#{version}-macOS-#{arch}.dmg",
       verified: "https://github.com"
 
   name "EchoMusic"
