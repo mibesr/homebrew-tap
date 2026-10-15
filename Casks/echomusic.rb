@@ -1,7 +1,7 @@
 cask "echomusic" do
   arch arm: "arm64", intel: "x64"
 
-  version "2.3.2-beta.14"
+  version "2.3.2-beta.15"
   sha256 :no_check
 
   url "https://github.com/hoowhoami/EchoMusic/releases/download/v#{version}/EchoMusic-#{version}-macOS-#{arch}.dmg"
